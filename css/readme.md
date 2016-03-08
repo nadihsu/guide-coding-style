@@ -22,12 +22,9 @@
 - 能簡寫就寫簡寫
   - 能寫 `margin: 0 40px 20px`，就不要寫四個宣告
   - 如果有特定需要，就先寫簡寫，再寫特定宣告（比如 `backgorund-size` 有時會需要）
-- 重複性工作應用迴圈或寫成 mixin 處理
 
 # 格式
-
 - 一般狀況使用 sass，除非需要使用 map 或者多行的程式語法才用 scss
-- 用 soft tabs（2 個空白，可參考 [sublime 設定](https://github.com/unfoldgroup/guide-dev-environment/tree/master/editor#preference)）
 - 不使用 ID 選擇器
 - 當需要使用多個選擇器時，一個選擇器打一行
 - 宣告和宣告之間留空行
