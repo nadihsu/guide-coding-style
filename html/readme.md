@@ -81,4 +81,4 @@ ul
 jade 的 data source 來自 data 資料夾，首先會先往 global.yml 找，然後再去找相對的頁面，key 重複時則以頁面變數為主。案子不複雜的狀況可以都寫在 global.yml 裡，頁面資料量大需要分檔時再分檔即可。
 
 # Helper
-目前 jade helper 寫在 gulp task 裡，可依專案需求調整。
+目前 jade helper 寫在 [gulp task](https://github.com/unfoldgroup/starter2016/blob/master/gulp%2Ftasks%2Fcompile%2Fjade_helper.coffee) 裡，可依專案需求調整。
