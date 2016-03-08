@@ -15,23 +15,20 @@
 # 格式
 
 ## 使用變數時，等號後面加一空白：
-**bad**
 ```jade
+//- bad
 p=text
-```
 
-**good**
-```jade
+//- good
 p= text
 ```
 
 ## 使用變數時，可視情況使用 interpolation
-**bad**
 ```jade
+//- bad
 p= 'copyright ©' + current_year
-```
-**good**
-```jade
+
+//- good
 p copyright ©#{current_year}
 ```
 
@@ -42,12 +39,11 @@ p copyright ©#{current_year}
 ```
 
 ## 屬性間不加逗號
-**bad**
 ```jade
+//- bad
 a(href='#', target='_blank')
-```
-**good**
-```jade
+
+//- good
 a(href='#' target='_blank')
 ```
 
@@ -56,7 +52,7 @@ a(href='#' target='_blank')
 
 **bad**
 ```jade
-// _menu.jade
+//- _menu.jade
 ul
   li:a(href='/about') about
   li:a(href='/product') product
@@ -82,7 +78,7 @@ links:
     href: '/contact'
 ```
 ```jade
-// _menu.jade
+//- _menu.jade
 ul
   each link in links
     li:a(href=link.href)= link.text
