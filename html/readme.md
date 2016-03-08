@@ -1,14 +1,12 @@
+[starter2016](https://github.com/unfoldgroup/starter2016) 用 jade 當 template engine，語法見[官網](http://jade-lang.com/reference/)
+
 # Table of Contents
-- [Jade](#jade)
 - [原則](#原則)
 - [格式](#格式)
 - [檔案結構](#檔案結構)
 - [Helper](#Helper)
 
 ---
-
-# Jade
-[starter2016](https://github.com/unfoldgroup/starter2016) 用 jade 當 template engine，語法見[官網](http://jade-lang.com/reference/)
 
 # 原則
 - 最後交付檔案時盡量把資料和樣板分離
