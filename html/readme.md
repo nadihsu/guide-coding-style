@@ -15,8 +15,46 @@
 - 重複的 code 用迴圈或者 mixin 處理
 
 # 格式
-- 使用變數時，等號後面加一空白：`p= text`
-- 使用 `// ` 做顯示註解，`//- ` 做隱藏註解
+
+## 使用變數時，等號後面加一空白：
+**bad**
+```jade
+p=text
+```
+
+**good**
+```jade
+p= text
+```
+
+## 使用變數時，可視情況使用 interpolation
+**bad**
+```jade
+p= 'copyright ©' + current_year
+```
+**good**
+```jade
+p copyright ©#{current_year}
+```
+
+## 註解
+```jade
+// 會輸出
+//- 不會輸出
+```
+
+## 屬性間不加逗號
+**bad**
+```jade
+a(href='#', target='_blank')
+```
+**good**
+```jade
+a(href='#' target='_blank')
+```
+
+## 資料分離
+為方便日後維護或者將原始檔交付給後端接資料，資料和樣板最好分離（但不是硬性規定，可視專案規模決定）
 
 **bad**
 ```jade
@@ -35,13 +73,13 @@ links:
   -
     text: 'about'
     href: '/about'
-  - 
+  -
     text: 'product'
     href: '/product'
   -
     text: 'blog'
     href: '/blog'
-  - 
+  -
     text: 'contact'
     href: '/contact'
 ```
