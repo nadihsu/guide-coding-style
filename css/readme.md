@@ -32,10 +32,9 @@
 - 當需要使用多個選擇器時，一個選擇器打一行
 - 宣告和宣告之間留空行
 - 冒號後空一格
-- 色碼全小寫，能寫三碼就不寫六碼
 
-**bad**
 ```sass
+// bad
 .avatar
     border-radius:50%
     border:2px solid white
@@ -45,10 +44,7 @@
 #lol-no
     // ...
 
-```
-
-**good**
-```sass
+// good
 .avatar
   border-radius: 50%
   border: 2px solid white
