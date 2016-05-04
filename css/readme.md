@@ -42,71 +42,70 @@
     // ...
 
 // good
-.avatar
+.Avatar
   border-radius: 50%
   border: 2px solid white
 
-.one,
-.selector,
-.per-line
+.One,
+.Selector,
+.Per-line
   // ...
 ```
 
 # 命名規則
-全小寫命名，且使用類似 [BEM](http://getbem.com/introduction/) 的 class 命名方式，舉例：
+採用 [SUIT](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md) 的方式命名
 
 **jade**
 ```jade
-article.listing_card.listing_card-featured
-  h1.listing_card__title Adorable 2BR in the sunny Mission
-  .listing_card__content
-    p Vestibulum id ligula porta felis euismod semper.
+article.ComponentName.ComponentName--modifierName
+  h1.ComponentName-descendentName blahblah
 ```
 
 **sass**
 ```sass
-.listing_card
+.ComponentName
   // ...
-  &-featured
+  &--modifierName
     // ...
-  &__title
-    // ...
-  &__content
+  &-descendentName
     // ...
 ```
 ### 說明
-- `.listing_card` 代表高層元件 (Block)
-- `.listing_card__title` 代表 block 下的元素 (Element)
-- `.listing_card-feature` 代表變形 (Modifier)
-
-### 注意
-- Element 深度僅一層，也就是不會出現 `.block_name__element_A__element_B` 這樣的階層
+- 元件名稱使用 PascalCase，其他部分使用 camelCase
+- 元件下層元素用 `-` 連接
+- 元件變形用 `--` 連接
 
 ## 前綴系統
-- `.is-<status>`  
-  代表元件狀態（和 `modifier` 有點類似，小心搞混）  
-  舉例：按鈕的 `.btn.is-active` 是狀態，`.btn.btn-danger` 是變形
+- `.is-<status>`
+  代表元件狀態
+  舉例：按鈕的 `.Btn.is-active` 是狀態，`.Btn.Btn--danger` 是變形
 - `.has-<object>` 代表元件內有特定子元件
+- `.u-<util>` 工具型的 classname
 - `.js-<object name>` 和 js 功能有關係的，加一個 js 當前綴，提醒修改者要修改時須考慮 js
 - `.page-<page name>` 只會用在 html tag 上，留給頁面特定的 style 使用
 
 # 變數
-一律使用英文小寫字母撰寫變數名稱，而變數名稱為兩個英文單字以上時，請使用 “ - ” 字號來區隔單字，例如：`$color-blue` `$background-color`... 以方便閱讀。
-針對同系列的變數單字排列順序，盡可能讓順序越一致越好，舉個例子：
+使用 kebab-case
 ```sass
 // bad
-$color-light-blue: #???
-$color-blue: #???
-$color-dark-blue: #???
+$fontSize: 12px
+$font_size: 12px
 
 // good
-$color-blue-light: #???
-$color-blue: #???
-$color-blue-dark: #???
+$font-size: 12px
+```
+
+顏色變數用 -d 和 -l 代表亮度關係，數量代表差距等級
+```sass
+$color-red-ll: #???
+$color-red-l: #???
+$color-red: #???
+$color-red-d: #???
+$color-red-dd: #???
 ```
 
 # 宣告的順序
-不強制規定，不過習慣上把 `@extend %placeholder` 擺最前面，`+mixin` 擺最後面，中間其他宣告的順序，依據 style 或 layout 分組，比如
+把 `@extend %placeholder` 擺最前面，非覆寫狀況 `+mixin` 擺最後面，中間其他宣告的順序，依據 style 或 layout 分組，比如
 ```sass
 // bad
 .something
@@ -148,6 +147,7 @@ $color-blue-dark: #???
 ├── _layout.sass
 ├── _mixin.sass
 ├── _shared-config.scss
+├── _util.sass
 ├── _typography.sass
 ├── _variable.sass
 ├── base
@@ -175,6 +175,7 @@ $color-blue-dark: #???
 - 以下為暫存檔，當該檔案內容多到應該新增資料夾時，可自行開新的資料夾加以整理
   - `_layout.sass` 放整體排版相關的 style，比如 grid system
   - `_mixin.sass` 放 mixin
+  - `_util.sass` 定工具型的 class
   - `_typography.sass` 定義字體
   - `_variables.sass` 定義變數
 - 與 jade 和 coffee 共用變數的設定檔
@@ -199,4 +200,3 @@ $color-blue-dark: #???
 
 # 參考
 - https://github.com/airbnb/css
-- http://mvcss.ycnets.com/
