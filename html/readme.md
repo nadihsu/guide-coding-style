@@ -60,25 +60,42 @@ ul
   li:a(href='/contact') contact
 ```
 
-**good**
-```yml
-# data.yml
-links:
-  -
+**good 1**
+```jade
+//- _menu.jade
+-
+  var links = [
+    { text: 'about', href: '/about' },
+    { text: 'product', href: '/product' },
+    { text: 'blog', href: '/blog' },
+    { text: 'contact', href: '/contact' }
+  ]
+
+ul
+  each link in links
+    li:a(href=link.href)= link.text
+```
+
+**good 2**
+```coffee
+# data/nav.coffee
+module.exports = [
     text: 'about'
     href: '/about'
-  -
+  ,
     text: 'product'
     href: '/product'
-  -
+  ,
     text: 'blog'
     href: '/blog'
-  -
+  ,
     text: 'contact'
     href: '/contact'
+  ]
 ```
 ```jade
 //- _menu.jade
+links = readData('nav')
 ul
   each link in links
     li:a(href=link.href)= link.text
@@ -89,9 +106,8 @@ ul
 ```
 .
 ├── data
-│   ├── global.yml
-│   ├── index.yml
-│   └── page-name.yml
+│   ├── global.coffee
+│   └── info.coffee
 └── jade
     ├── layouts
     │   ├── _default.jade
@@ -110,7 +126,6 @@ ul
         ├── _header.jade
         └── _partial-name.jade
 ```
-jade 的 data source 來自 data 資料夾，首先會先往 global.yml 找，然後再去找相對的頁面，key 重複時則以頁面變數為主。案子不複雜的狀況可以都寫在 global.yml 裡，頁面資料量大需要分檔時再分檔即可。
 
 # Helper
-目前 jade helper 寫在 [gulp task](https://github.com/unfoldgroup/starter2016/blob/master/gulp%2Ftasks%2Fcompile%2Fjade_helper.coffee) 裡，可依專案需求調整。
+目前 jade helper 寫在 [gulp libs](https://github.com/unfoldgroup/starter2016/blob/master/gulp%2Flibs%2Fcompile%2Fjade.coffee) 裡，可依專案需求調整。
